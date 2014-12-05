@@ -45,10 +45,11 @@ namespace Common.Extensions
             return (ITakesScreenshot)driver;
         }
 
+
         public static RemoteWebElement FindElementByJQuery(this RemoteWebDriver driver, string format, params object[] argsObjects)
         {
             // Return the first item in the collection since we only want one element.  Most likely the collection only contains 1 element anway.
-           var elements = FindElementsInternal(driver, String.Format(format, argsObjects));
+            var elements = FindElementsInternal(driver, String.Format(format, argsObjects));
             if (elements.Count > 0)
             {
                 return (RemoteWebElement)FindElementsInternal(driver, String.Format(format, argsObjects))[0];
@@ -74,7 +75,7 @@ namespace Common.Extensions
         }
 
         /// <summary>
-        /// Finds elements usign jquery
+        /// Finds elements using jquery
         /// </summary>
         /// <param name="driver"></param>
         /// <param name="jQuerySelector"></param>
@@ -122,13 +123,13 @@ namespace Common.Extensions
         }
 
         /// <summary>
-        ///     Performs a hover action on the element
+        ///  Performs a hover action on the element
         /// </summary>
         /// <param name="element">IWebElement to hover on</param>
         /// <param name="timeout"></param>
         public static void Hover(this IWebElement element, TimeSpan timeout)
         {
-            Logger.TestAction("Hovering on element '{0}'  of type '{1}'",element.Text, element.TagName);
+            Logger.TestAction("Hovering on element '{0}'  of type '{1}'", element.Text, element.TagName);
             element.Highlight();
             var wrappedElement = element as IWrapsDriver;
             if (wrappedElement == null)
@@ -315,29 +316,6 @@ namespace Common.Extensions
         }
 
         /// <summary>
-        /// Causes the element on the page to be highlighted in the supplied color
-        /// </summary>
-        /// <param name="element"></param>
-        /// <param name="color"></param>
-        /// <returns>string of the elements original style</returns>
-        public static string Highlight(this IWebElement element, string color)
-        {
-            string orig = element.GetAttribute("style");
-            SetAttribute(element, "style", String.Format("color: black; border: 5px solid {0};", color));
-            return orig;
-        }
-
-        /// <summary>
-        /// Removes the highlight on the element
-        /// </summary>
-        /// <param name="element"></param>
-        /// <param name="originalStyle"></param>
-        public static void UnHighlight(this IWebElement element, string originalStyle)
-        {
-            SetAttribute(element, "style", originalStyle);
-        }
-
-        /// <summary>
         /// Waits for the page to load
         /// </summary>
         /// <param name="driver"></param>
@@ -395,7 +373,30 @@ namespace Common.Extensions
         }
 
         /// <summary>
-        /// Choosed a random elelment from a IEnumerable type such as a List
+        /// Removes the highlight on the element
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="originalStyle"></param>
+        public static void UnHighlight(this IWebElement element, string originalStyle)
+        {
+            SetAttribute(element, "style", originalStyle);
+        }
+
+        /// <summary>
+        /// Causes the element on the page to be highlighted in the supplied color
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="color"></param>
+        /// <returns>string of the elements original style</returns>
+        public static string Highlight(this IWebElement element, string color)
+        {
+            string orig = element.GetAttribute("style");
+            SetAttribute(element, "style", String.Format("color: black; border: 5px solid {0};", color));
+            return orig;
+        }
+
+        /// <summary>
+        /// Chooses a random elelment from a IEnumerable type such as a List
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="list"></param>
@@ -415,6 +416,5 @@ namespace Common.Extensions
             }
             return picked;
         }
-
     }
 }
