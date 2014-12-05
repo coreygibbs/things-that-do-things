@@ -18,7 +18,7 @@ namespace Common.Extensions
 
         private static readonly BasicLogger Logger = new BasicLogger();
         /// <summary>
-        ///     Extension method to that will also correctly delete cookies in IE
+        ///  Extension method to that will also correctly delete cookies in IE
         /// </summary>
         /// <param name="driver"></param>
         public static void DeleteCookies(this IWebDriver driver)
@@ -45,7 +45,13 @@ namespace Common.Extensions
             return (ITakesScreenshot)driver;
         }
 
-
+        /// <summary>
+        /// Finds a single element using jquery
+        /// </summary>
+        /// <param name="driver"></param>
+        /// <param name="format"></param>
+        /// <param name="argsObjects"></param>
+        /// <returns></returns>
         public static RemoteWebElement FindElementByJQuery(this RemoteWebDriver driver, string format, params object[] argsObjects)
         {
             // Return the first item in the collection since we only want one element.  Most likely the collection only contains 1 element anway.
@@ -144,6 +150,7 @@ namespace Common.Extensions
         }
 
         /// <summary>
+        /// Wait for an element to become visible on the page
         /// </summary>
         /// <param name="webElement"></param>
         /// <param name="timeout"></param>
@@ -198,7 +205,7 @@ namespace Common.Extensions
         }
 
         /// <summary>
-        ///     Clicks on the elment and logs information to the test log
+        ///     Clicks on the element and logs information to the test log
         /// </summary>
         /// <param name="element">element to click on</param>
         public static void ClickWithLogging(this RemoteWebElement element)
@@ -242,7 +249,7 @@ namespace Common.Extensions
         }
 
         /// <summary>
-        /// Sle
+        /// Selects an element by using text provided and logs the selection
         /// </summary>
         /// <param name="element"></param>
         /// <param name="text"></param>
@@ -353,7 +360,7 @@ namespace Common.Extensions
         }
 
         /// <summary>
-        /// Highlights the elment being validated
+        /// Highlights the element being validated
         /// </summary>
         /// <param name="element"></param>
         /// <returns></returns>
