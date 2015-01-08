@@ -52,7 +52,8 @@ namespace Ui.Tests.ScenarioTests
             msnHomePage.SearchTermInputbox.SendKeysWithLogging("Selenium");
 
             // Validate autocomplete dropdown
-            Assert.IsTrue(msnHomePage.TopHitsAutoCompleteBlock.WaitForElementToBeVisible(TimeSpan.FromSeconds(5)), "Auto complete block did not show up as expected.");
+            Assert.IsTrue(msnHomePage.TopHitsAutoCompleteBlock.WaitForElementToBeVisible(TimeSpan.FromSeconds(5)),
+                "Auto complete block did not show up as expected.");
         }
 
         [TestMethod]

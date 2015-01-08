@@ -13,7 +13,7 @@ namespace TestSamples.Interfaces
         ValidationResult IsLoaded(TimeSpan timeout);
 
         /// <summary>
-        /// Method used to HTML control object loaded in its correct state
+        /// Method used to validate control object loaded in its correct state
         /// </summary>
         /// <returns>ValidationResult object with pass/fail state as a bool and a list any error messages</returns>
         ValidationResult ValidateDefaultRenderState();
