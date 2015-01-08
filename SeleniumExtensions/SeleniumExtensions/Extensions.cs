@@ -11,7 +11,7 @@ using OpenQA.Selenium.Internal;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 
-namespace Common.Extensions
+namespace SeleniumExtensions
 {
     public static class Extensions
     {
@@ -75,7 +75,8 @@ namespace Common.Extensions
             var elements = FindElementsInternal(driver, jQuerySelector);
             if (elements.Count > 0)
             {
-                return (RemoteWebElement)FindElementsInternal(driver, jQuerySelector)[0];
+                return (RemoteWebElement)elements[0];
+                //return (RemoteWebElement)FindElementsInternal(driver, jQuerySelector)[0];
             }
             return null;
         }
@@ -117,6 +118,7 @@ namespace Common.Extensions
             try
             {
                 Logger.Debug(String.Format("Executing JQuery: {0}.get()", jquerySelector));
+                
                 ReadOnlyCollection<IWebElement> collection = wait.Until(e => e.ExecuteScript(jquerySelector + ".get()") as ReadOnlyCollection<IWebElement>);
                 return collection;
             }

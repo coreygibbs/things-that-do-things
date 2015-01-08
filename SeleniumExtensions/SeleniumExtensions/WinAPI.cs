@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Common.Extensions
+namespace SeleniumExtensions
 {
     public static class WinAPI
     {

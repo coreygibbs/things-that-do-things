@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumExtensions", "SeleniumExtensions\SeleniumExtensions.csproj", "{30DD731F-2D9B-46E4-99C7-B409C029A39A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSamples", "TestSamples\TestSamples.csproj", "{80A27E97-85B3-462D-8E7B-187832692E59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{30DD731F-2D9B-46E4-99C7-B409C029A39A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30DD731F-2D9B-46E4-99C7-B409C029A39A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30DD731F-2D9B-46E4-99C7-B409C029A39A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80A27E97-85B3-462D-8E7B-187832692E59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80A27E97-85B3-462D-8E7B-187832692E59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80A27E97-85B3-462D-8E7B-187832692E59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80A27E97-85B3-462D-8E7B-187832692E59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

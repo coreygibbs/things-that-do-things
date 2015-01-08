@@ -1,4 +1,4 @@
-﻿namespace Common.Interfaces
+﻿namespace SeleniumExtensions.Interfaces
 {
     public interface ITestLogger
     {

@@ -1,7 +1,7 @@
 ﻿using System;
-using Common.Interfaces;
+using SeleniumExtensions.Interfaces;
 
-namespace Common
+namespace SeleniumExtensions
 {
     public class BasicLogger : ITestLogger
     {

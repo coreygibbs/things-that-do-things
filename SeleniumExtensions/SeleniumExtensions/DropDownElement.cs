@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace Common.Extensions
+namespace SeleniumExtensions
 {
     public class DropDownElement
     {
