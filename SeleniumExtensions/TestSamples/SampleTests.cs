@@ -79,6 +79,33 @@ namespace Ui.Tests.ScenarioTests
 
         }
 
+        [TestMethod]
+        [TestCategory("Default")]
+        public void WeatherSectionNavigation()
+        {
+            _webDriver.Manage().Window.Size = new System.Drawing.Size(800, 800);
+
+            var msnHomePage = new POHomePage(_webDriver);
+            GoToPage("http://www.msn.com", msnHomePage);
+            if (msnHomePage.PromoBannerCloseButton.Displayed)
+            {
+                msnHomePage.PromoBannerCloseButton.ClickWithLogging();
+            }
+            // Wait for the banner ad to not steal focus
+            _webDriver.Wait(TimeSpan.FromSeconds(2));
+
+            // Used to make the page scroll to ensure elment is visible.
+            msnHomePage.EntertainmentSection.RightArrowButton.Focus();
+            _webDriver.Wait(TimeSpan.FromSeconds(1));
+            
+            // Wait time mainly here so you can visibily see that things work.
+            msnHomePage.NewsSection.RightArrowButton.ClickWithLogging();
+            _webDriver.Wait(TimeSpan.FromSeconds(1));
+            
+            msnHomePage.NewsSection.LeftArrowButton.ClickWithLogging();
+            _webDriver.Wait(TimeSpan.FromSeconds(1));
+        }
+
         private void GoToPage(string url, IPageObject page)
         {
             _webDriver.Navigate().GoToUrl(url);

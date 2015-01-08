@@ -45,6 +45,19 @@ namespace SeleniumExtensions
             return (ITakesScreenshot)driver;
         }
 
+        public static void  Focus(this IWebElement element)
+        {
+            var wrappedElement = element as IWrapsDriver;
+            if (wrappedElement == null)
+                throw new ArgumentException("Element must wrap a web driver", "element");
+
+            IWebDriver driver = wrappedElement.WrappedDriver;
+
+            var builder = new Actions(driver);
+
+            new Actions(driver).MoveToElement(element).Perform();
+        }
+
         /// <summary>
         /// Finds a single element using jquery
         /// </summary>

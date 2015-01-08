@@ -3,6 +3,7 @@ using System;
 using TestSamples.Interfaces;
 using TestSamples.Objects;
 using SeleniumExtensions;
+using System.Collections.ObjectModel;
 
 namespace TestSamples.PageObjects
 {
@@ -53,6 +54,22 @@ namespace TestSamples.PageObjects
         {
             get { return new HomePageSlideShowControl(webDriver); }
         }
+
+
+        public ContentSection NewsSection
+        {
+            get { return new ContentSection(webDriver, "div[data-section-id='stripe.news']"); }
+        }
+
+        public ContentSection EntertainmentSection
+        {
+            get { return new ContentSection(webDriver, "div[data-section-id='stripe.entertainment']"); }
+        }
+
+        public RemoteWebElement PromoBannerCloseButton
+        {
+            get { return webDriver.FindElementByJQuery("div.closebutton"); }
+        }
     }
 
     public class HomePageSlideShowControl : IPageObject
@@ -94,5 +111,37 @@ namespace TestSamples.PageObjects
             get { return webDriver.FindElementByJQuery("div.ip.infopanestripe.slideshow li.selected a"); }
         }
 
+    }
+
+    public class ContentSection : IPageObject
+    {
+        private RemoteWebDriver webDriver;
+        private readonly string parentJquery;
+
+        public ContentSection(RemoteWebDriver webDriver, string parentJquery)
+        {
+            this.webDriver = webDriver;
+            this.parentJquery = String.Format("$(\"{0}\")", parentJquery);
+        }
+
+        public RemoteWebElement LeftArrowButton
+        {
+            get { return webDriver.FindElementByJQuery("{0}.find(\"button.leftarrow\")", parentJquery); }
+        }
+
+        public RemoteWebElement RightArrowButton
+        {
+            get { return webDriver.FindElementByJQuery("{0}.find(\"button.rightarrow\")", parentJquery); }
+        }
+
+        public ValidationResult IsLoaded(TimeSpan timeout)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ValidationResult ValidateDefaultRenderState()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
