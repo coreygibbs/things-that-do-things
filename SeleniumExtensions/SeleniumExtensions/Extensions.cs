@@ -58,7 +58,7 @@ namespace SeleniumExtensions
             var elements = FindElementsInternal(driver, String.Format(format, argsObjects));
             if (elements.Count > 0)
             {
-                return (RemoteWebElement)FindElementsInternal(driver, String.Format(format, argsObjects))[0];
+                return (RemoteWebElement)elements[0];
             }
             return null;
         }
@@ -76,7 +76,6 @@ namespace SeleniumExtensions
             if (elements.Count > 0)
             {
                 return (RemoteWebElement)elements[0];
-                //return (RemoteWebElement)FindElementsInternal(driver, jQuerySelector)[0];
             }
             return null;
         }
@@ -408,15 +407,15 @@ namespace SeleniumExtensions
         /// Chooses a random elelment from a IEnumerable type such as a List
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="list"></param>
+        /// <param name="enumerableObject"></param>
         /// <param name="rnd"></param>
         /// <returns></returns>
-        public static T Random<T>(this IEnumerable<T> list)
+        public static T Random<T>(this IEnumerable<T> enumerableObject)
         {
             var rnd = new Random();
             T picked = default(T);
             int cnt = 0;
-            foreach (T item in list)
+            foreach (T item in enumerableObject)
             {
                 if (rnd.Next(++cnt) == 0)
                 {
