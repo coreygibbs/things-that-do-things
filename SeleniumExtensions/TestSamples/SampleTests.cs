@@ -12,7 +12,7 @@ namespace Ui.Tests.ScenarioTests
     [TestClass]
     public class SampleTests
     {
-        private  RemoteWebDriver _webDriver;
+        private RemoteWebDriver _webDriver;
         public TestContext TestContext { get; set; }
 
         [TestInitialize]
@@ -74,7 +74,7 @@ namespace Ui.Tests.ScenarioTests
             var newCurrentHref = msnHomePage.SlideShow.GetSelectedSlideLink.GetAttribute("href");
 
             // Now check to make sure they are not the same
-            Assert.AreNotEqual(currentHref, newCurrentHref, 
+            Assert.AreNotEqual(currentHref, newCurrentHref,
                 "Href values are the same for 2 slides.  The slide show may not have advanced.");
 
         }
@@ -97,11 +97,11 @@ namespace Ui.Tests.ScenarioTests
             // Used to make the page scroll to ensure elment is visible.
             msnHomePage.EntertainmentSection.RightArrowButton.Focus();
             _webDriver.Wait(TimeSpan.FromSeconds(1));
-            
+
             // Wait time mainly here so you can visibily see that things work.
             msnHomePage.NewsSection.RightArrowButton.ClickWithLogging();
             _webDriver.Wait(TimeSpan.FromSeconds(1));
-            
+
             msnHomePage.NewsSection.LeftArrowButton.ClickWithLogging();
             _webDriver.Wait(TimeSpan.FromSeconds(1));
         }

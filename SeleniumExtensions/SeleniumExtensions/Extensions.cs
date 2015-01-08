@@ -45,7 +45,7 @@ namespace SeleniumExtensions
             return (ITakesScreenshot)driver;
         }
 
-        public static void  Focus(this IWebElement element)
+        public static void Focus(this IWebElement element)
         {
             var wrappedElement = element as IWrapsDriver;
             if (wrappedElement == null)
@@ -130,7 +130,7 @@ namespace SeleniumExtensions
             try
             {
                 Logger.Debug(String.Format("Executing JQuery: {0}.get()", jquerySelector));
-                
+
                 ReadOnlyCollection<IWebElement> collection = wait.Until(e => e.ExecuteScript(jquerySelector + ".get()") as ReadOnlyCollection<IWebElement>);
                 return collection;
             }
